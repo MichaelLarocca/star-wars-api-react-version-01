@@ -1,55 +1,77 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-  
+
 function PlanetsNew() {
-  const [isLoading, setLoading] = useState(true); // Loading state
-  const [starWarsData, setStarWarsData] = useState();
-  const [url, setUrl] = useState(`https://swapi.dev/api/planets/?page=1`)
+	const [isLoading, setLoading] = useState(true);
+	const [starWarsDataPlanets, setStarWarsDataPlanets] = useState();
+	const [urlPlanets, setUrlPlanets] = useState(
+		`https://swapi.dev/api/planets/?page=1`
+	);
 
-  useEffect(() => { // useEffect hook
+	useEffect(() => {
+		axios.get(urlPlanets).then((response) => {
+			setStarWarsDataPlanets(response.data);
+			setLoading(false);
+		});
+	}, [urlPlanets]);
 
-//    axios.get(`https://swapi.dev/api/planets/?page=1`)
-   axios.get(url)
-    .then((response) => {
-        // Get data
-        setStarWarsData(response.data); //set  state
-        setLoading(false); //set loading state
-      });
+	if (isLoading) {
+		return (
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					justifyContent: "center",
+					height: "100vh",
+				}}
+			>
+				Loading... {console.log("loading state")}
+			</div>
+		);
+	}
 
-    }, [url]);
+	const allPlanetsOnPage = starWarsDataPlanets.results.map((planet) => {
+		console.log(planet);
 
-    if (isLoading) {
-        return (
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-        }}>Loading the data {console.log("loading state")}</div>
-      );
+		return (
+			<div>
+				<p>{planet.name}</p>
+				<p>{planet.climate}</p>
+				<p>{planet.population}</p>
+			</div>
+		);
+	});
 
-      }
-      
-      return (
-        <div>    
-          <h1>SW Planets</h1>
-          <p>planetsPage count: {starWarsData.count}</p>
-          <p>planetsPage next: {starWarsData.next}</p>
-          <p>planetsPage previous: {starWarsData.previous}</p>
-          <p>{starWarsData.results[0].name}</p>
-          <button onClick={nextPlanetPage} disabled={starWarsData.next ? false : true}>Planet Page Next</button>
-          <button onClick={previousPage} disabled={starWarsData.previous ? false : true}>Planet Page Previous</button>
-        </div>
-      );    
+	return (
+		<div>
+			<h1>SW Planets</h1>
+			<button
+				onClick={previousPage}
+				disabled={starWarsDataPlanets.previous ? false : true}
+			>
+				⏪ Planet Page Previous
+			</button>
+			<button
+				onClick={nextPlanetPage}
+				disabled={starWarsDataPlanets.next ? false : true}
+			>
+				Planet Page Next ⏩
+			</button>
 
-      function nextPlanetPage() {
-        setUrl(starWarsData.next);        
-      }
+			<main>{allPlanetsOnPage}</main>
+		</div>
+	);
 
-      function previousPage() {
-        setUrl(starWarsData.previous); 
-      }
-}  
+	function nextPlanetPage() {
+		setLoading(true);
+		setUrlPlanets(starWarsDataPlanets.next);
+	}
+
+	function previousPage() {
+		setLoading(true);
+		setUrlPlanets(starWarsDataPlanets.previous);
+	}
+}
 
 export default PlanetsNew;
