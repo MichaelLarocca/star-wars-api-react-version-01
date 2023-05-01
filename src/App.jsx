@@ -2,8 +2,9 @@ import React, { useState } from "react";
 console.log(React);
 
 import "./App.css";
-import PlanetsNew from "./components/PlanetsNew";
+import Planets from "./components/Planets";
 import People from "./components/People";
+import Starships from "./components/Starships";
 
 function App() {
 	const [selectedComponent, setSelectedComponent] = useState("Main");
@@ -13,15 +14,17 @@ function App() {
 		<>
 			<nav>
 				<button onClick={() => setSelectedComponent("Main")}>Main Page</button>
-				<button onClick={() => setSelectedComponent("PlanetsNew")}>
-					Planets
-				</button>
+				<button onClick={() => setSelectedComponent("Planets")}>Planets</button>
 
 				<button onClick={() => setSelectedComponent("People")}>People</button>
+				<button onClick={() => setSelectedComponent("Starships")}>
+					Starships
+				</button>
 			</nav>
 			{selectedComponent === "Main" && <h1>Star Wars API</h1>}
-			{selectedComponent === "PlanetsNew" && <PlanetsNew />}
+			{selectedComponent === "Planets" && <Planets />}
 			{selectedComponent === "People" && <People />}
+			{selectedComponent === "Starships" && <Starships />}
 		</>
 	);
 }

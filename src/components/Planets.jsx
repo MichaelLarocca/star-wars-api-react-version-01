@@ -1,118 +1,96 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+// console.log(React);
 function Planets() {
-    const [starWarsData, setStarWarsData] = useState("");
-    const [planetsPage, setPlanetsPage] = useState(1);
-    const [count, setCount] = useState(0);
-    const [next, setNext] = useState(0);
-    const [isLoading, setLoading] = useState(true); // Loading state
+	const [isLoading, setLoading] = useState(true);
+	const [starWarsDataPlanets, setStarWarsDataPlanets] = useState();
+	const [urlPlanets, setUrlPlanets] = useState(
+		`https://swapi.dev/api/planets/?page=1`
+	);
 
+	useEffect(() => {
+		axios.get(urlPlanets).then((response) => {
+			setStarWarsDataPlanets(response.data);
+			setLoading(false);
+		});
+	}, [urlPlanets]);
 
-    // useEffect(() => { // useEffect hook
+	if (isLoading) {
+		return (
+			<>
+				<div>
+					<h1>Planets</h1>
+					<button
+						// onClick={previousPage}
+						disabled={true}
+					>
+						⏪ Previous Page
+					</button>
+					<button
+						// onClick={nextPlanetPage}
+						disabled={true}
+					>
+						Next Page⏩
+					</button>
+				</div>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						justifyContent: "center",
+						height: "100vh",
+					}}
+				>
+					Loading... {console.log("loading state")}
+				</div>
+			</>
+		);
+	}
 
-    //   axios.get("https://swapi.dev/api/planets/?page=1")
-    //   .then((response) => {
-      
-    //       // Get pokemon data
-    //       planetsPage(response.data); //set pokemon state
-    //       setLoading(false); //set loading state
-    //     });
+	const allPlanetsOnPage = starWarsDataPlanets.results.map((planet) => {
+		console.log(planet);
 
-    //   }, []);
-  
-    useEffect(()=>{
-      // async function fetchPlanets() { 
+		return (
+			<div>
+				<h2 key={planet.name}>{planet.name}</h2>
+				<p>Climate: {planet.climate}</p>
+				<p>Terrain: {planet.terrain}</p>
+				<p>Population: {planet.population}</p>
+				<br />
+			</div>
+		);
+	});
 
-        axios.get(`https://swapi.dev/api/planets/?page=${planetsPage}`)
-        .then((response) => {
-        
-            // Get pokemon data
-            planetsPage(response.data); //set state
-            setLoading(false); //set loading state
-              console.log(`response: ${response}`)
+	return (
+		<div>
+			<h1>Planets</h1>
+			<button
+				onClick={previousPage}
+				disabled={starWarsDataPlanets.previous ? false : true}
+			>
+				⏪ Previous Page
+			</button>
+			<button
+				onClick={nextPlanetPage}
+				disabled={starWarsDataPlanets.next ? false : true}
+			>
+				Next Page⏩
+			</button>
 
-          // const results = await fetch(`https://swapi.dev/api/planets/?page=${planetsPage}`);
-          // const data = await results.json();
-    
-          setStarWarsData(response.data);
-            
+			<main>{allPlanetsOnPage}</main>
+		</div>
+	);
 
-          // let count = starWarsData.count;
-          setCount(starWarsData.count);
-            console.log(`count: ${count}`);
-          // let next = starWarsData.next;
-          setNext(starWarsData.next);
-            console.log(`next: ${next}`);
+	function nextPlanetPage() {
+		setLoading(true);
+		setUrlPlanets(starWarsDataPlanets.next);
+	}
 
-          let previous = starWarsData.previous;
-          let planets = starWarsData.results;
-
-      //   try {
-      //     const results = await fetch(`https://swapi.dev/api/planets/?page=${planetsPage}`);
-      //     const data = await results.json();
-    
-      //     setStarWarsData(data);
-
-      //     // let count = starWarsData.count;
-      //     setCount(starWarsData.count);
-      //       // console.log(`count: ${count}`);
-      //     // let next = starWarsData.next;
-      //     setNext(starWarsData.next);
-      //       // console.log(`next: ${next}`);
-
-      //     let previous = starWarsData.previous;
-      //     let planets = starWarsData.results;
-  
-      //    } catch (error) {
-      //   console.error(error);
-      // }
-    // }
-
-  });
-      fetchPlanets();
-    }, [planetsPage]);
-    
-    function handelClick() {
-
-        if(!isLoading) {
-          console.log(`starWarsData: ${starWarsData}`)
-          console.log(`planetsPage: ${planetsPage}`);
-          console.log(`next: ${next}`)
-          // if(next || !undefined || !null || planetsPage < 1) {
-          if(next && planetsPage < 7) {
-            setPlanetsPage(prev => prev + 1);
-            // console.log(`next: ${next}`);
-          } else {
-            console.log(`All hand's on deck!`);
-            console.log(`next: ${next}`)
-            setPlanetsPage(prev => prev = 1);
-          }
-            
-        }
-      }
-
-    if (isLoading) {
-      return (
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}>Loading the data {console.log("loading state")}</div>
-    );
-    }
-
-    return (
-      <>
-        <div className='ctn'>
-          <h1>SW API</h1>
-              <button onClick={handelClick}>Next Page</button>
-              {starWarsData && <p>starWarsData: {starWarsData.results[0].name}</p>}
-        </div>
-      </>
-    )
+	function previousPage() {
+		setLoading(true);
+		setUrlPlanets(starWarsDataPlanets.previous);
+	}
 }
 
 export default Planets;

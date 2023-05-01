@@ -53,12 +53,13 @@ function People() {
 
 		return (
 			<div>
-				<p key={people.name}>{people.name}</p>
-				<p>{people.birth_year}</p>
-				<p>{people.height}</p>
-				<p>{people.hair_color}</p>
-				<p>{people.skin_color}</p>
-				<p>{people.eye_color}</p>
+				<h2 key={people.name}>{people.name}</h2>
+				<p>Gender: {people.gender}</p>
+				<p>Birth Year: {people.birth_year}</p>
+				<p>Height: {people.height}</p>
+				<p>Hair Color: {people.hair_color}</p>
+				<p>Skin Color: {people.skin_color}</p>
+				<p>Eye Color: {people.eye_color}</p>
 				<br />
 			</div>
 		);
