@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+console.log(React);
 function PlanetsNew() {
 	const [isLoading, setLoading] = useState(true);
 	const [starWarsDataPlanets, setStarWarsDataPlanets] = useState();
@@ -17,17 +17,34 @@ function PlanetsNew() {
 
 	if (isLoading) {
 		return (
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					justifyContent: "center",
-					height: "100vh",
-				}}
-			>
-				Loading... {console.log("loading state")}
-			</div>
+			<>
+				<div>
+					<h1>Planets</h1>
+					<button
+					// onClick={previousPage}
+					// disabled={starWarsDataPlanets.previous ? false : true}
+					>
+						⏪ Previous Page
+					</button>
+					<button
+					// onClick={nextPlanetPage}
+					// disabled={starWarsDataPlanets.next ? false : true}
+					>
+						Next Page⏩
+					</button>
+				</div>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						justifyContent: "center",
+						height: "100vh",
+					}}
+				>
+					Loading... {console.log("loading state")}
+				</div>
+			</>
 		);
 	}
 
@@ -36,7 +53,7 @@ function PlanetsNew() {
 
 		return (
 			<div>
-				<p>{planet.name}</p>
+				<p key={planet.name}>{planet.name}</p>
 				<p>{planet.climate}</p>
 				<p>{planet.population}</p>
 			</div>
@@ -45,18 +62,18 @@ function PlanetsNew() {
 
 	return (
 		<div>
-			<h1>SW Planets</h1>
+			<h1>Planets</h1>
 			<button
 				onClick={previousPage}
 				disabled={starWarsDataPlanets.previous ? false : true}
 			>
-				⏪ Planet Page Previous
+				⏪ Previous Page
 			</button>
 			<button
 				onClick={nextPlanetPage}
 				disabled={starWarsDataPlanets.next ? false : true}
 			>
-				Planet Page Next ⏩
+				Next Page⏩
 			</button>
 
 			<main>{allPlanetsOnPage}</main>

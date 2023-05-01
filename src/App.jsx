@@ -1,17 +1,25 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Planets from './components/Planets'
-import Pokemon from './components/Pokemon'
-import PlanetsNew from './components/PlanetsNew'
+import React, { useState } from "react";
+console.log(React);
+
+import "./App.css";
+import PlanetsNew from "./components/PlanetsNew";
 
 function App() {
-  return (
-    // <Planets />
-    // <Pokemon />
-    <PlanetsNew />
-  )
+	const [selectedComponent, setSelectedComponent] = useState("Main");
+	console.log(`selectedComponent: ${selectedComponent}`);
+	// setSelectedComponent("test");
+	return (
+		<>
+			<nav>
+				<button onClick={() => setSelectedComponent("Main")}>Main Page</button>
+				<button onClick={() => setSelectedComponent("PlanetsNew")}>
+					Planets
+				</button>
+			</nav>
+			{selectedComponent === "Main" && <h1>Star Wars API</h1>}
+			{selectedComponent === "PlanetsNew" && <PlanetsNew />}
+		</>
+	);
 }
 
-export default App
+export default App;
