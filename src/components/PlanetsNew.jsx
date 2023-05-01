@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-console.log(React);
+// console.log(React);
 function PlanetsNew() {
 	const [isLoading, setLoading] = useState(true);
 	const [starWarsDataPlanets, setStarWarsDataPlanets] = useState();
@@ -56,6 +56,7 @@ function PlanetsNew() {
 				<p key={planet.name}>{planet.name}</p>
 				<p>{planet.climate}</p>
 				<p>{planet.population}</p>
+				<br />
 			</div>
 		);
 	});
