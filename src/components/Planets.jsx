@@ -19,7 +19,7 @@ function Planets() {
 		return (
 			<>
 				<div>
-					<h1>Planets</h1>
+					<h1 className="txt-shadow-gold">Planets</h1>
 					<button
 						// onClick={previousPage}
 						disabled={true}
@@ -40,6 +40,7 @@ function Planets() {
 						alignItems: "center",
 						justifyContent: "center",
 						height: "100vh",
+						width: "100vw",
 					}}
 				>
 					Loading... {console.log("loading state")}
@@ -52,7 +53,7 @@ function Planets() {
 		console.log(planet);
 
 		return (
-			<div>
+			<div className="card card-planet">
 				<h2 key={planet.name}>{planet.name}</h2>
 				<p>Climate: {planet.climate}</p>
 				<p>Terrain: {planet.terrain}</p>
@@ -64,7 +65,7 @@ function Planets() {
 
 	return (
 		<div>
-			<h1>Planets</h1>
+			<h1 className="txt-shadow-gold">Planets</h1>
 			<button
 				onClick={previousPage}
 				disabled={starWarsDataPlanets.previous ? false : true}

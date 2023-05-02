@@ -1,4 +1,4 @@
-body {
+/* body {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -6,4 +6,154 @@ body {
 
 button {
 	margin: 0 5px;
+} */
+
+body {
+	background-color: #333;
+	color: whitesmoke;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: url("https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_960_720.jpg")
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: "Archivo", sans-serif;
+}
+
+nav {
+	height: 75px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.9);
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+nav button {
+	height: 25px;
+}
+
+.nav-items {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.txt-shadow-gold {
+	text-shadow: 1px 1px 1px gold;
+}
+.txt-shadow-red {
+	text-shadow: 1px 1px 1px red;
+}
+.txt-shadow-blue {
+	text-shadow: 1px 1px 1px blue;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+div {
+	display: inline-block;
+}
+
+main {
+	/* border: 3px solid red; */
+	/* margin-top: 100px; */
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* flex-wrap: wrap; */
+	/* text-align: center; */
+	/* margin-left: 150px !important; */
+	/* width: 350px; */
+}
+
+.center {
+	text-align: center;
+}
+
+.main-title {
+	color: gold;
+	text-align: center;
+}
+
+#ctn-main {
+	/* border: 3px solid green; */
+	margin-top: 100px;
+	text-align: center;
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+	/* justify-content: center; */
+	/* max-width: 500px; */
+}
+
+#ctn-planets {
+	/* display: flex;
+	flex-wrap: wrap;
+	justify-content: center; */
+}
+
+.card {
+	border-radius: 25px;
+	background-color: rgba(0, 0, 0, 0.9);
+	width: 250px;
+	min-width: 250px;
+	text-wrap: wrap;
+	text-align: center;
+	margin: 15px;
+	padding: 5px;
+}
+
+.card-planet {
+	border: 3px solid gold;
+	text-shadow: 1px 1px 1px gold;
+}
+
+.card-starships {
+	border: 3px solid red;
+	text-shadow: 1px 1px 1px red;
+}
+
+.card-people {
+	border: 3px solid blue;
+	text-shadow: 1px 1px 1px blue;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay.active {
+	display: flex;
+	cursor: wait;
+}
+
+@media only screen and (max-width: 1000px) {
+	body {
+		font-size: x-large;
+	}
+	nav {
+		height: 125px;
+	}
+
+	button {
+		height: 20px;
+	}
 }

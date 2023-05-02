@@ -17,9 +17,9 @@ function People() {
 
 	if (isLoading) {
 		return (
-			<>
+			<div className="center">
 				<div>
-					<h1>People</h1>
+					<h1 className="txt-shadow-blue">People</h1>
 					<button
 						// onClick={previousPage}
 						disabled={true}
@@ -40,11 +40,12 @@ function People() {
 						alignItems: "center",
 						justifyContent: "center",
 						height: "100vh",
+						width: "100vw",
 					}}
 				>
 					Loading... {console.log("loading state")}
 				</div>
-			</>
+			</div>
 		);
 	}
 
@@ -52,7 +53,7 @@ function People() {
 		console.log(people);
 
 		return (
-			<div>
+			<div className="card card-people">
 				<h2 key={people.name}>{people.name}</h2>
 				<p>Gender: {people.gender}</p>
 				<p>Birth Year: {people.birth_year}</p>
@@ -67,7 +68,7 @@ function People() {
 
 	return (
 		<div>
-			<h1>People</h1>
+			<h1 className="txt-shadow-blue">People</h1>
 			<button
 				onClick={previousPage}
 				disabled={starWarsDataPeople.previous ? false : true}

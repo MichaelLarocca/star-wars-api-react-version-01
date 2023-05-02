@@ -19,7 +19,7 @@ function Starships() {
 		return (
 			<>
 				<div>
-					<h1>Starships</h1>
+					<h1 className="txt-shadow-red">Starships</h1>
 					<button
 						// onClick={previousPage}
 						disabled={true}
@@ -40,6 +40,7 @@ function Starships() {
 						alignItems: "center",
 						justifyContent: "center",
 						height: "100vh",
+						width: "100vw",
 					}}
 				>
 					Loading... {console.log("loading state")}
@@ -52,7 +53,7 @@ function Starships() {
 		console.log(Starship);
 
 		return (
-			<div>
+			<div className="card card-starships">
 				<h2 key={Starship.name}>{Starship.name}</h2>
 				<p>Manufacturer: {Starship.manufacturer}</p>
 				<p>Cost in credits: {Starship.cost_in_credits}</p>
@@ -68,7 +69,7 @@ function Starships() {
 
 	return (
 		<div>
-			<h1>Starships</h1>
+			<h1 className="txt-shadow-red">Starships</h1>
 			<button
 				onClick={previousPage}
 				disabled={starWarsDataStarships.previous ? false : true}
