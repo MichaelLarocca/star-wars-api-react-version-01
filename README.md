@@ -49,7 +49,6 @@ npm run dev
 
 - [Article](https://selftaughttxg.com/2023/05-23/react-how-to-use-the-star-wars-api-for-beginners/)
 - [Live Demo](https://star-wars-api-react-version-01.netlify.app/)
-- [GitHub Repository](https://github.com/MichaelLarocca/star-wars-api-react-version-01)
 
 ## Author
 
