@@ -17,33 +17,22 @@ function People() {
 
 	if (isLoading) {
 		return (
-			<div className="center">
+			<div>
 				<div>
 					<h1 className="txt-shadow-blue">People</h1>
 					<button
-						// onClick={previousPage}
 						disabled={true}
 					>
 						⏪ Previous Page
 					</button>
 					<button
-						// onClick={nextPlanetPage}
 						disabled={true}
 					>
 						Next Page⏩
 					</button>
 				</div>
-				<div className="overlay"
-					// style={{
-					// 	display: "flex",
-					// 	flexDirection: "column",
-					// 	alignItems: "center",
-					// 	justifyContent: "center",
-					// 	height: "100vh",
-					// 	width: "100vw",
-					// }}
-				>
-					Loading... {console.log("loading state")}
+				<div className="overlay">
+					Loading...
 				</div>
 			</div>
 		);

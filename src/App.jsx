@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-console.log(React);
 
 import "./App.css";
 import Main from "./components/Main";
@@ -9,8 +8,7 @@ import Starships from "./components/Starships";
 
 function App() {
 	const [selectedComponent, setSelectedComponent] = useState("Main");
-	console.log(`selectedComponent: ${selectedComponent}`);
-	// setSelectedComponent("test");
+
 	return (
 		<>
 			<nav>

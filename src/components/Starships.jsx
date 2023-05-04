@@ -17,35 +17,24 @@ function Starships() {
 
 	if (isLoading) {
 		return (
-			<>
+			<div>
 				<div>
 					<h1 className="txt-shadow-red">Starships</h1>
 					<button
-						// onClick={previousPage}
 						disabled={true}
 					>
 						⏪ Previous Page
 					</button>
 					<button
-						// onClick={nextStarshipsPage}
 						disabled={true}
 					>
 						Next Page⏩
 					</button>
 				</div>
-				<div className="overlay"
-					// style={{
-					// 	display: "flex",
-					// 	flexDirection: "column",
-					// 	alignItems: "center",
-					// 	justifyContent: "center",
-					// 	height: "100vh",
-					// 	width: "100vw",
-					// }}
-				>
-					Loading... {console.log("loading state")}
+				<div className="overlay">
+					Loading...
 				</div>
-			</>
+			</div>
 		);
 	}
 
