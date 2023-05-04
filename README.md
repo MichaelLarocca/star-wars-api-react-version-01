@@ -52,4 +52,4 @@ npm run dev
 
 ## Author
 
-Michael LaRocca - [LinkedIn](https://www.linkedin.com/in/michaeljudelarocca/) | [Twitter](https://twitter.com/MikeJudeLarocca)
+Michael Larocca - [LinkedIn](https://www.linkedin.com/in/michaeljudelarocca/) | [Twitter](https://twitter.com/MikeJudeLarocca)
