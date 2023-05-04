@@ -1,3 +1,5 @@
+![TXG-86](https://github.com/MichaelLarocca/blog-michael-jude-larocca/blob/main/posts/2023/05-23/img/05-04-2023/TXG-86.png?raw=true)
+
 # React Star Wars API for Beginners
 
 This beginner-friendly project demonstrates how to create a React app that uses the Star Wars API to display information. The app features a Navbar with buttons to render components upon user clicks.
