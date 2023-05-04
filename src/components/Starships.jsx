@@ -33,15 +33,15 @@ function Starships() {
 						Next Page⏩
 					</button>
 				</div>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						height: "100vh",
-						width: "100vw",
-					}}
+				<div className="overlay"
+					// style={{
+					// 	display: "flex",
+					// 	flexDirection: "column",
+					// 	alignItems: "center",
+					// 	justifyContent: "center",
+					// 	height: "100vh",
+					// 	width: "100vw",
+					// }}
 				>
 					Loading... {console.log("loading state")}
 				</div>
